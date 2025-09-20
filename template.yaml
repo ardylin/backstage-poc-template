@@ -32,29 +32,29 @@ spec:
                 kind: [User, Group]
 
 
-    - title: Choose Location
-      required:
-        - repoUrl
-      properties:
-        repoUrl:
-          title: Repository Location
-          type: string
-          ui:
-            field: RepoUrlPicker
-            options:
-              allowedHosts:
-                - github.com
+    # - title: Choose Location
+    #   required:
+    #     - repoUrl
+    #   properties:
+    #     repoUrl:
+    #       title: Repository Location
+    #       type: string
+    #       ui:
+    #         field: RepoUrlPicker
+    #         options:
+    #           allowedHosts:
+    #             - github.com
 
 
-  steps:
-    - id: fetch-base
-      name: Fetch Base
-      action: fetch:template
-      input:
-        url: https://github.com/ardylin/backstage-poc-update-file
-        values:
-          name: ${{ parameters.name }}
-          owner: ${{ parameters.owner }}
+  # steps:
+  #   - id: fetch-base
+  #     name: Fetch Base
+  #     action: fetch:template
+  #     input:
+  #       url: https://github.com/ardylin/backstage-poc-update-file
+  #       values:
+  #         name: ${{ parameters.name }}
+  #         owner: ${{ parameters.owner }}
 
 
     # - id: publish
