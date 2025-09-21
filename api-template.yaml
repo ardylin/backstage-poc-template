@@ -2,9 +2,9 @@ apiVersion: scaffolder.backstage.io/v1beta3
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-template
 kind: Template
 metadata:
-  name: api-express-template
-  title: Node.JS API w/ express.js
-  description: A template for provisioning APIs with Express.JS
+  name: Create-pipeline-parameters-template
+  title: Create pipeline parameters 
+  description: A template for provisioning pipeline parameters
 spec:
   owner: user:guest
   type: service
@@ -14,12 +14,12 @@ spec:
   parameters:
     - title: Project Info
       required:
-        - name
+        - project_name
       properties:
-        name:
-          title: Name
+        project_name:
+          title: Project name
           type: string
-          description: Unique name of the component
+          description: Unique name of the project
           ui:autofocus: true
           ui:options:
             rows: 5
@@ -53,7 +53,7 @@ spec:
       input:
         url: https://github.com/ardylin/backstage-poc-update-file
         values:
-          name: ${{ parameters.name }}
+          project_name: ${{ parameters.project_name }}
           owner: ${{ parameters.owner }}
 
     # This step publishes the contents of the working directory to GitHub.
@@ -62,7 +62,7 @@ spec:
       action: publish:github
       input:
         allowedHosts: ['github.com']
-        description: This is ${{ parameters.name }}
+        description: This is ${{ parameters.project_name }}
         repoUrl: ${{ parameters.repoUrl }}
 
     # The final step is to register our new component in the catalog.
